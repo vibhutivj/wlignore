@@ -1,0 +1,49 @@
+<div data-role="header" id="ContactViewheader" data-position="fixed">
+	<a href="#AccountsView" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-transition="slide" data-direction="reverse">Back</a>
+	<h3>Contact</h3>
+</div>
+<div data-role="content" id="ContactViewContent">
+<% if(Contact.length==undefined){ %>
+
+
+	<table style="width:100%">
+		<tbody>
+			<tr>
+				<td align="left"><label id="label" style="color: blue">Name: </label></td>
+				<td align="right"><label id="label0" style="font-style: italic; font-size: medium; color: black"><%= Contact.FirstName %> <%= Contact.LastName %></label></td>
+			</tr>
+			<tr>
+				<td align="left"><label id="label" style="color: blue">Email id: </label></td> <%
+				if(typeof Contact.Email !='object'){ %>
+				<td align="right"><label id="label0" style="font-style: italic; font-size: medium; color: black"><%= Contact.Email %></label></td> 
+					<% }if(typeof Contact.Email =='object'){ %>
+				<td align="right"><label id="label0" style="font-style: italic; font-size: medium; color: black">Not Available.</label></td> 
+					<% } %>
+			</tr>
+		</tbody>
+	</table>
+
+	<% } %>
+<% if(Contact.length!=undefined){ %>
+	<table>
+		<tbody>
+		<% for(var i=0;i<Contact.length; i++){ %>
+		
+			<tr>
+				<td align="left"><label id="label" style="color: blue">Name: </label></td>
+				<td align="right"><label id="label0" style="font-style: italic; font-size: medium; color: black"><%= Contact[i].FirstName %> <%= Contact[i].LastName %></label></td>
+			</tr>
+			<tr>
+				<td align="left"><label id="label" style="color: blue">Email id: </label></td>
+				<% if(typeof Contact[i].Email !='object'){ %>
+				<td align="right"><label id="label0" style="font-style: italic; font-size: medium; color: black"><%= Contact[i].Email %></label></td>
+				<% }if(typeof Contact[i].Email =='object'){ %>
+				<td align="right"><label id="label0" style="font-style: italic; font-size: medium; color: black">Not Available.</label></td>
+				<% } %>
+			</tr>
+			<tr> </tr>
+		<% } %>
+		</tbody>
+	</table>
+<% } %>
+</div>

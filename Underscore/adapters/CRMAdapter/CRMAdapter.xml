@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed Materials - Property of IBM
+    5725-I43 (C) Copyright IBM Corp. 2011, 2013. All Rights Reserved.
+    US Government Users Restricted Rights - Use, duplication or
+    disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<wl:adapter name="CRMAdapter"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:wl="http://www.worklight.com/integration"
+	xmlns:http="http://www.worklight.com/integration/http"
+	xmlns:ci="http://www.worklight.com/integration/ci">
+
+	<displayName>CRMAdapter</displayName>
+	<description>CRMAdapter</description>
+	<connectivity>
+		<connectionPolicy xsi:type="http:HTTPConnectionPolicyType">
+			<!-- <protocol>http</protocol>
+			<domain>172.25.16.208</domain>
+			<port>7007</port>-->
+			<protocol>https</protocol>
+			<domain>eval-cloud2.castiron.com</domain>
+			<port>443</port> 
+			<authentication>
+				  <basic/>
+				  <serverIdentity>
+				    <username>httpclient@PS_East.com</username>
+				    <password>ChangeMe!</password>
+				  </serverIdentity>
+			</authentication>
+			<!--  <proxy>
+				<protocol>http</protocol>
+				<domain>172.25.16.212</domain>
+				<port>8080</port>
+				<authentication>
+				<basic/>
+				<serverIdentity>
+				<username>pt0004</username>
+				<password>Vib800008</password>
+				</serverIdentity>
+				</authentication>
+			</proxy>-->			
+		</connectionPolicy>
+		
+		<loadConstraints maxConcurrentConnectionsPerNode="2" />
+		
+	</connectivity>
+
+	<procedure name="getAccounts"/>
+	<procedure name="getContacts"/>
+		
+</wl:adapter>

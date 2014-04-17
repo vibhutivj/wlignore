@@ -1,0 +1,11 @@
+<div data-role="header" id="AccountsViewheader" data-position="fixed">
+	<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-transition="slide" data-direction="reverse">Back</a>
+	<h3>My Customers</h3>
+</div>
+<div data-role="content" id="AccountsViewContent">
+	<ul data-role="listview" id="listview" data-inset="true">
+		<% for(var i=0;i<Account.length;i++) {%>
+		<li id="listitem"><a href="#ContactView&<%= Account[i].Id %>"><%= Account[i].Name %></a></li> 
+		<% }; %>
+	</ul>
+</div>
